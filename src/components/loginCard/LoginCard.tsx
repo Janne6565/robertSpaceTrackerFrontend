@@ -1,6 +1,7 @@
 import {
   useCallback,
   useState,
+  // @ts-expect-error View transition still in experimental phase
   unstable_ViewTransition as ViewTransition,
 } from "react";
 import config from "../../../app.config.json";

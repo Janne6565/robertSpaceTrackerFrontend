@@ -7,6 +7,8 @@ import {
   Skeleton,
   Typography,
 } from "@mui/material";
+
+// @ts-expect-error View transition still in experimental phase
 import { unstable_ViewTransition as ViewTransition } from "react";
 
 const DiscountCard = (props: {

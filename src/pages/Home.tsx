@@ -7,6 +7,7 @@ import {
   useContext,
   useEffect,
   useState,
+  // @ts-expect-error View transition still in experimental phase
   unstable_ViewTransition as ViewTransition,
 } from "react";
 

@@ -4,6 +4,7 @@ import {
   useCallback,
   useEffect,
   useState,
+  // @ts-expect-error View transition still in experimental phase
   unstable_ViewTransition as ViewTransition,
 } from "react";
 import useCookie from "react-use-cookie";
@@ -142,6 +143,7 @@ const ConfigCard = () => {
                   onChange={(e) => {
                     setMinPrice(e.target.value ? parseInt(e.target.value) : 0);
                   }}
+                  // @ts-expect-error defaultValue is not a number
                   defaultValue={minPrice}
                 />
                 <span className="euro">€</span>
@@ -170,6 +172,7 @@ const ConfigCard = () => {
                   onChange={(e) => {
                     setMaxPrice(e.target.value ? parseInt(e.target.value) : 0);
                   }}
+                  // @ts-expect-error defaultValue is not a number
                   defaultValue={maxPrice}
                 />
                 <span className="euro">€</span>

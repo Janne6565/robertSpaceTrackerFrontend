@@ -1,8 +1,10 @@
-import { Flight, Settings as SettingsIcon } from "@mui/icons-material";
+import { Flight, Menu, Settings as SettingsIcon } from "@mui/icons-material";
 import {
+  AppBar,
   Box,
   Container,
   Drawer,
+  IconButton,
   List,
   ListItem,
   ListItemButton,
@@ -12,6 +14,7 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
+// @ts-expect-error View transition still in experimental phase
 import { useState, unstable_ViewTransition as ViewTransition } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 
@@ -53,6 +56,29 @@ export function RootLayout() {
 
   return (
     <Box sx={{ display: "flex" }}>
+      <AppBar
+        position="fixed"
+        sx={{
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          ml: { sm: `${drawerWidth}px` },
+          display: { sm: "flex", md: "none" },
+        }}
+      >
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: "none" } }}
+          >
+            <Menu />
+          </IconButton>
+          <Typography variant="h6" noWrap component="div">
+            Space Tracker
+          </Typography>
+        </Toolbar>
+      </AppBar>
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
@@ -65,7 +91,7 @@ export function RootLayout() {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: "block", sm: "none" },
+            display: { sm: "block", md: "none" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
