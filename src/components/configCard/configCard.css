@@ -1,0 +1,28 @@
+.inputContainer {
+  width: 100%;
+  margin: auto;
+  position: relative;
+  display: inline-block;
+}
+
+.eurosInput {
+  padding-right: 35px;
+}
+
+.euro {
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  right: 10px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+}
